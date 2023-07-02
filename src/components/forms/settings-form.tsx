@@ -26,6 +26,7 @@ import { SettingsValidator } from "@/lib/validators/settings"
 import { Separator } from "../ui/separator"
 import { AlertModal } from "../modals/alert-modal"
 import { ApiAlert } from "../api-alert"
+import { useOrigin } from "@/hooks/use-origin"
 
 interface SettingsFormProps {
   store: Store;
@@ -38,7 +39,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
 }) => {
   const params = useParams();
   const router = useRouter();
-  // const origin = useOrigin();
+  const origin = useOrigin();
 
   const [open, setOpen] = useState(false);
 
