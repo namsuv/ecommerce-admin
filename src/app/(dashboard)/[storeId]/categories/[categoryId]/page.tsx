@@ -1,5 +1,5 @@
 
-import { CategoryForm } from "@/components/forms/category-form";
+import { CategoryForm } from "@/app/(dashboard)/[storeId]/categories/[categoryId]/category-form";
 import { db } from "@/lib/db";
 
 const CategoryPage = async ({

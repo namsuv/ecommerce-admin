@@ -6,10 +6,10 @@ import { useParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
-import { Heading } from "./heading";
-import { DataTable } from "./data-table";
-import { BillboardColumn, billboardColumns } from "./columns/billboard-column";
-import { ApiList } from "./api-list";
+import { Heading } from "../../../../components/heading";
+import { DataTable } from "../../../../components/data-table";
+import { ApiList } from "../../../../components/api-list";
+import { BillboardColumn, billboardColumns } from "./columns";
 
 interface BillboardClientProps {
   data: BillboardColumn[];

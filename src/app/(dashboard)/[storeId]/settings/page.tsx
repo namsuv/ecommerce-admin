@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs";
 
 import { db } from "@/lib/db";
 
-import { SettingsForm } from "@/components/forms/settings-form";
+import { SettingsForm } from "@/app/(dashboard)/[storeId]/settings/settings-form";
 
 const SettingsPage = async ({
   params

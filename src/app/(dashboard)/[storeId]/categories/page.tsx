@@ -1,9 +1,9 @@
 import { format } from "date-fns";
 
-import { CategoriesClient } from "@/components/category-client";
-import { CategoryColumn } from "@/components/columns/category-column";
+import { CategoriesClient } from "@/app/(dashboard)/[storeId]/categories/client";
 
 import { db } from "@/lib/db";
+import { CategoryColumn } from "./columns";
 
 const CategoriesPage = async ({
   params

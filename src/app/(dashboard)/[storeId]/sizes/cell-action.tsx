@@ -1,11 +1,10 @@
 "use client";
 
 import axios from "axios";
+import { useState } from "react";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
 
-import { AlertModal } from "@/components/modals/alert-modal";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,15 +13,17 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { CategoryColumn } from "./category-column";
-import { toast } from "@/hooks/use-toast";
+import { AlertModal } from "@/components/modals/alert-modal";
+
+import { SizeColumn } from "./columns";
 import { useMutation } from "@tanstack/react-query";
+import { toast } from "@/hooks/use-toast";
 
 interface CellActionProps {
-  data: CategoryColumn;
+  data: SizeColumn;
 }
 
-export const CategoryCellAction: React.FC<CellActionProps> = ({
+export const SizeCellAction: React.FC<CellActionProps> = ({
   data,
 }) => {
   const router = useRouter();
@@ -31,11 +32,11 @@ export const CategoryCellAction: React.FC<CellActionProps> = ({
 
   const { mutate: onConfirm, isLoading } = useMutation({
     mutationFn: async () => {
-      await axios.delete(`/api/${params.storeId}/categories/${data.id}`);
+      await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
     },
     onError: () => {
       return toast({
-        description: 'Make sure you removed all products using this category first.',
+        description: 'Make sure you removed all products using this size first.',
         variant: 'destructive'
       });
     },
@@ -44,7 +45,7 @@ export const CategoryCellAction: React.FC<CellActionProps> = ({
       router.refresh();
 
       return toast({
-        description: 'Category deleted.'
+        description: 'Size deleted.'
       });
     },
   })
@@ -52,7 +53,7 @@ export const CategoryCellAction: React.FC<CellActionProps> = ({
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
     toast({
-      description: 'Category ID copied to clipboard.'
+      description: 'Size ID copied to clipboard.'
     });
   }
 
@@ -79,7 +80,7 @@ export const CategoryCellAction: React.FC<CellActionProps> = ({
             <Copy className="mr-2 h-4 w-4" /> Copy Id
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() => router.push(`/${params.storeId}/categories/${data.id}`)}
+            onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>

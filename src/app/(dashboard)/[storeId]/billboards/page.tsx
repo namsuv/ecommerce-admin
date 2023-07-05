@@ -2,8 +2,8 @@ import { format } from "date-fns";
 
 import { db } from "@/lib/db";
 
-import { BillboardClient } from "@/components/billboard-client";
-import { BillboardColumn } from "@/components/columns/billboard-column";
+import { BillboardClient } from "@/app/(dashboard)/[storeId]/billboards/client";
+import { BillboardColumn } from "./columns";
 
 const BillboardsPage = async ({
   params

@@ -23,9 +23,9 @@ import { Heading } from "@/components/heading"
 import { useMutation } from "@tanstack/react-query"
 import { toast } from "@/hooks/use-toast"
 import { SettingsValidator } from "@/lib/validators/settings"
-import { Separator } from "../ui/separator"
-import { AlertModal } from "../modals/alert-modal"
-import { ApiAlert } from "../api-alert"
+import { Separator } from "../../../../components/ui/separator"
+import { AlertModal } from "../../../../components/modals/alert-modal"
+import { ApiAlert } from "../../../../components/api-alert"
 import { useOrigin } from "@/hooks/use-origin"
 
 interface SettingsFormProps {

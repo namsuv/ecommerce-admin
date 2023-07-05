@@ -23,7 +23,7 @@ import { Separator } from "@/components/ui/separator"
 import { AlertModal } from "@/components/modals/alert-modal"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "@/hooks/use-toast"
-import { Heading } from "../heading"
+import { Heading } from "../../../../../components/heading"
 import { CategoryValidator } from "@/lib/validators/category"
 import { useMutation } from "@tanstack/react-query"
 

@@ -25,7 +25,7 @@ import { toast } from "@/hooks/use-toast"
 import { UploadButton } from "@/lib/uploadthing"
 import { BillBoardValidator } from "@/lib/validators/billboard"
 import { useMutation } from "@tanstack/react-query"
-import { Heading } from "../heading"
+import { Heading } from "../../../../../components/heading"
 
 import "@uploadthing/react/styles.css"
 import Image from "next/image"

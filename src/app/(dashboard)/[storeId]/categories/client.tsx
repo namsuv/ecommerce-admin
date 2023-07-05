@@ -5,10 +5,10 @@ import { useParams, useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { DataTable } from "./data-table";
-import { Heading } from "./heading";
-import { ApiList } from "./api-list";
-import { CategoryColumn, categoryColumns } from "./columns/category-column";
+import { DataTable } from "../../../../components/data-table";
+import { Heading } from "../../../../components/heading";
+import { ApiList } from "../../../../components/api-list";
+import { CategoryColumn, categoryColumns } from "./columns";
 
 
 interface CategoriesClientProps {

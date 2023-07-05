@@ -1,10 +1,11 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
 
+import { AlertModal } from "@/components/modals/alert-modal";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,17 +14,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { AlertModal } from "@/components/modals/alert-modal";
-
-import { BillboardColumn } from "./billboard-column";
+import { CategoryColumn } from "./columns";
 import { toast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 
 interface CellActionProps {
-  data: BillboardColumn;
+  data: CategoryColumn;
 }
 
-export const BillBoardCellAction: React.FC<CellActionProps> = ({
+export const CategoryCellAction: React.FC<CellActionProps> = ({
   data,
 }) => {
   const router = useRouter();
@@ -32,11 +31,11 @@ export const BillBoardCellAction: React.FC<CellActionProps> = ({
 
   const { mutate: onConfirm, isLoading } = useMutation({
     mutationFn: async () => {
-      await axios.delete(`/api/${params.storeId}/billboards/${data.id}`);
+      await axios.delete(`/api/${params.storeId}/categories/${data.id}`);
     },
     onError: () => {
       return toast({
-        description: 'Make sure you removed all categories using this billboard first.',
+        description: 'Make sure you removed all products using this category first.',
         variant: 'destructive'
       });
     },
@@ -45,16 +44,15 @@ export const BillBoardCellAction: React.FC<CellActionProps> = ({
       router.refresh();
 
       return toast({
-        description: 'Billboard deleted.'
+        description: 'Category deleted.'
       });
     },
   })
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-
     toast({
-      description: 'Billboard ID copied to clipboard.'
+      description: 'Category ID copied to clipboard.'
     });
   }
 
@@ -81,7 +79,7 @@ export const BillBoardCellAction: React.FC<CellActionProps> = ({
             <Copy className="mr-2 h-4 w-4" /> Copy Id
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() => router.push(`/${params.storeId}/billboards/${data.id}`)}
+            onClick={() => router.push(`/${params.storeId}/categories/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>

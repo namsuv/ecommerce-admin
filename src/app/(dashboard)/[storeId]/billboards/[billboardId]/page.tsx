@@ -1,5 +1,5 @@
 
-import { BillboardForm } from "@/components/forms/billboard-form";
+import { BillboardForm } from "@/app/(dashboard)/[storeId]/billboards/[billboardId]/billboard-form";
 
 import { db } from "@/lib/db";
 
